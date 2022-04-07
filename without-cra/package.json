@@ -1,0 +1,9 @@
+{
+  "name": "without-cra",
+  "version": "1.0.0",
+  "description": "make react app withou cra",
+  "main": "index.js",
+  "repository": "https://github.com/aosjehdgus/assignment-practice.git",
+  "author": "lonnie <aosjehdgus@naver.com>",
+  "license": "MIT"
+}
