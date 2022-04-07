@@ -10,6 +10,16 @@ const headerContainer = css`
   display: flex;
   justify-content: center;
   padding: 1rem;
+  h1 {
+    font-size: 2rem;
+    color: rgba(1, 1, 1, 0.7);
+  }
+`;
+
+const titleContainer = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const inputContainer = css`
@@ -19,10 +29,22 @@ const inputContainer = css`
   padding: 1rem;
   input {
     padding: 0.5rem;
+    border: 0;
+    border-bottom: 1px solid black;
   }
-  svg {
-    padding: 0.5rem;
+  button {
+    background: inherit;
+    border: 0;
+    svg {
+      padding: 0.5rem;
+    }
   }
+`;
+
+const searchContainer = css`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `;
 
 const Search = () => {
@@ -74,6 +96,9 @@ const Search = () => {
     <div>
       <header css={headerContainer}>
         <form onSubmit={getSearchMovie}>
+          <div css={titleContainer}>
+            <h1>영화 검색</h1>
+          </div>
           <div css={inputContainer}>
             <input
               type="text"
@@ -82,18 +107,28 @@ const Search = () => {
               onChange={e => handleChange(e)}
             />
             <button type="submit">
-              <FcSearch />
+              <FcSearch size={20} />
             </button>
           </div>
         </form>
       </header>
-      <article>
+      <article css={searchContainer}>
         {movies?.map(
-          ({ title, director, image, link, pubDate, subtitle, userRating }) => {
+          ({
+            title,
+            actor,
+            director,
+            image,
+            link,
+            pubDate,
+            subtitle,
+            userRating,
+          }) => {
             return (
               <SearchMoiveResult
                 key={link}
                 title={title}
+                actor={actor}
                 director={director}
                 image={image}
                 pubDate={pubDate}
